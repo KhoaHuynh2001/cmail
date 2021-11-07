@@ -194,3 +194,43 @@ class _ErrorScreenState extends State<ErrorScreen> {
     );
   }
 }
+
+class SuccessedScreen extends StatefulWidget {
+  const SuccessedScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SuccessedScreen> createState() => _SuccessedScreenState();
+}
+
+class _SuccessedScreenState extends State<SuccessedScreen> {
+  bool _isLoading = true;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage('images/background.jpg'),
+                  fit: BoxFit.fill,
+                  colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(0.1), BlendMode.darken))),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Center(child: Image.network('images/CATLOGO1.PNG')),
+                SizedBox(
+                  height: 200,
+                ),
+                Container(
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ])),
+    );
+  }
+}
